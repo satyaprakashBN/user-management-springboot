@@ -1,6 +1,6 @@
 package com.example.user_management_springboot.service;
 
-import com.example.usermanagement.model.User;
+import com.example.user_management_springboot.entity.User;
 
 import java.util.List;
 
