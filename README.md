@@ -1,6 +1,7 @@
 # 🧑‍💼 Spring Boot User Management API
 
-This is a simple **User Management REST API** built with **Spring Boot**, demonstrating core concepts like:
+A clean and production-ready user management API built with **Spring Boot**, featuring **Redis caching** using Spring Cache (Lettuce), layered architecture, and RESTful design with core concepts like:
+
 - CRUD operations
 - Interface-based service layer
 - Spring Data JPA
@@ -12,24 +13,35 @@ This is a simple **User Management REST API** built with **Spring Boot**, demons
 
 ## 🚀 Features
 
-- Create new users
-- View all users
-- Get a user by ID
-- Update existing users
-- Delete users
-- Built using interfaces and abstraction
-- Stream API demo included
+- ✅ Create, read, update, and delete users (CRUD)
+- 🚀 Fast `getUserById` with Redis caching
+- 🧱 Layered architecture: Controller → Service → Repository
+- 💾 Spring Data JPA with H2/MySQL/PostgreSQL
+- 🛡️ Input validation
+- ⚙️ Configurable Redis integration using **Lettuce** (default)
 
 ---
 
-## 🛠 Tech Stack
+## 💡 Redis Caching
 
-- Java 17+
-- Spring Boot 3.x
-- Spring Web
-- Spring Data JPA
-- H2 Database
-- Maven
+This project uses Spring's caching abstraction with Redis to optimize lookup performance for individual users:
+
+``java
+@Cacheable(cacheNames = "users", key = "#id")
+public User getUserById(Long id) { ... }
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer        | Technology              |
+|--------------|--------------------------|
+| Framework    | Spring Boot              |
+| Database     | H2 (default) / MySQL     |
+| ORM          | Spring Data JPA          |
+| Caching      | Redis + Spring Cache (Lettuce) |
+| Validation   | Hibernate Validator       |
+| Build Tool   | Maven                    |
 
 ---
 
